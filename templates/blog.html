@@ -32,23 +32,23 @@
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        {% for i in object_list %}
+                        {% for post in latest_list %}
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="img/blog/single_blog_1.png" alt="">
+                                <img class="card-img rounded-0" src="{{ post.photo.url }}" alt="">
                                 <a href="#" class="blog_item_date">
-                                    <h3> {{ i.data }} </h3>
+                                    <h3> {{ post.data }} </h3>
                                     <!-- <p>Jan</p> -->
                                 </a>
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>{{ i.title }}</h2>
+                                <a class="d-inline-block" href="{% url 'post_detail' post.pk %}">
+                                    <h2>{{ post.title }}</h2>
                                 </a>
-                                <p>{{ i.summary }}</p>
+                                <p>{{ post.summary }}</p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> {{ i.author }} </a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i> {{ post.author }} </a></li>
                                     <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
                                 </ul>
                             </div>
